@@ -1,0 +1,28 @@
+---
+layout: default
+title: Home
+---
+
+<div class="boundary">
+    <div class="flex flex-col items-center">
+        {% for post in site.posts %}
+            <div class="bg-white shadow rounded-lg border p-6 max-w-2xl w-full">
+                <p class="text-gray-500 text-sm mb-2 text-center">{{ post.date | date_to_string }}</p>
+                <a href="{{ post.url }}">
+                    <h1 class="text-3xl font-bold mb-4 text-gray-800 text-center">
+                        {{ post.title }}
+                    </h1>
+                </a>
+                <div class="text-gray-800 mb-5">
+                    {{ post.excerpt }}
+                </div>
+                <div class="text-center">
+                    <a href="{{ post.url }}"
+                       class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm hover:bg-gray-300 transition duration-300">
+                        Read more
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

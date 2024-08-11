@@ -1,0 +1,10 @@
+.jekyll-cache
+.DS_Store
+.idea
+
+node_modules
+
+_site
+
+assets/stylesheets/*
+!assets/stylesheets/.keep

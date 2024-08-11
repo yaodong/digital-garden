@@ -1,0 +1,18 @@
+# the base hostname & protocol for your site, e.g. http://example.com
+url: ""
+
+# the subpath of your site, e.g. /blog
+baseurl: ""
+
+# use /posts/post-name/ as permalink
+permalink: /posts/:title/
+
+# the name of your site, e.g. ACME Corp.
+title: "def app"
+
+plugins:
+  - jekyll-feed
+
+exclude:
+  - bin
+  - node_modules
