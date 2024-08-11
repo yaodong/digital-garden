@@ -37,12 +37,24 @@ jobs:
           # Increment this number if you need to re-download cached gems
           cache-version: 0
 
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.0.35'
+
+      - name: Install Packages
+        run: bun install
+
+      - name: Build Assets
+        env:
+          NODE_ENV: production
+        run: bun run build:css
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
 
       - name: Build with Jekyll
-        # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
