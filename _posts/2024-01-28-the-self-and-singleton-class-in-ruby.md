@@ -1,7 +1,10 @@
 ---
 layout: post
-title: Revisiting the self and singleton class in Ruby
-date: 2024-01-28 23:10:18 UTC
+category: notes
+stage: seedlings
+title: The self and singleton class in Ruby
+created_date: 2024-01-28
+updated_date: 2024-08-06
 ---
 
 In Ruby, everything is an object, and every object has an anonymous class, which defines the methods the object can respond to. This anonymous class is called the _singleton class_.

@@ -5,10 +5,10 @@ url: ""
 baseurl: ""
 
 # use /posts/post-name/ as permalink
-permalink: /posts/:title/
+permalink: /:title/
 
 # the name of your site, e.g. ACME Corp.
-title: "def app"
+title: "Yaodong Zhao"
 
 plugins:
   - jekyll-feed

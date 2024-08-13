@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-serif: "Merriweather", serif;
+  --font-sans: "Mulish", sans-serif;
+}
+
+body {
+  background-attachment: fixed;
+  background: rgb(246, 245, 241);
+  background: linear-gradient(212deg, rgba(246, 245, 241, 1) 0%, rgba(245, 245, 245, 1) 100%);
+  color: #353534;
+  font-family: var(--font-sans), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), serif;
+}
+
 .boundary {
-  @apply max-w-3xl mx-auto py-10 px-5;
+  @apply w-full p-10;
 }
