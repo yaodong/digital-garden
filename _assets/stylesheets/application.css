@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --font-serif: "Merriweather", serif;
-  --font-sans: "Mulish", sans-serif;
+  --font-serif: "Merriweather", Georgia, serif;
+  --font-sans: "Mulish", --apple-system, Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -17,6 +17,14 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif), serif;
+}
+
+.font-serif {
+  font-family: var(--font-serif), serif;
+}
+
+.font-sans {
+  font-family: var(--font-sans), sans-serif;
 }
 
 .boundary {

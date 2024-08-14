@@ -1,7 +1,7 @@
 ---
 layout: post
 category: notes
-stage: seedlings
+stage: evergreen
 title: The self and singleton class in Ruby
 created_date: 2024-01-28
 updated_date: 2024-08-06

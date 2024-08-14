@@ -2,18 +2,31 @@
 layout: default
 ---
 
-<div class="container mx-auto">
+<div class="-mx-5 sm:mx-auto p-5 bg-white sm:rounded sm:shadow">
 
-  <div class="flex flex-col items-center mb-5 mt-10 space-y-2">
-    <h1 class="text-3xl font-bold text-gray-800">{{ page.title }}</h1>
-    <div class="flex space-x-3 text-gray-600 text-sm">
-      Planted on {{ page.created_date | date_to_string }}{% if page.updated_date %}, Last tended on {{ page.updated_date | date_to_string }}{% endif %}
+  <div class="max-w-3xl mx-auto">
+
+    <div class="flex flex-col my-5 sm:my-10 space-y-2">
+      <div class="flex items-center space-x-1">
+        {% include post-stage.html stage=page.stage %}
+        <span class="font-bold text-sm">{{ page.stage | upcase }}</span>
+      </div>
+      <div>
+        <h1 class="text-3xl font-bold text-gray-800">{{ page.title }}</h1>
+      </div>
+      <div class="flex justify-evenly">
+        <div class="grow"></div>
+        <div class="flex-initial text-gray-600 text-sm">
+          <p>Planted on {{ page.created_date | date_to_string }}</p>
+          {% if page.updated_date %}<p>Last tended on {{ page.updated_date | date_to_string }}</p>{% endif %}
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="prose mx-auto">
-    {{content}}
-  </div>
+    <div class="prose max-w-3xl mx-auto">
+      {{content}}
+    </div>
 
-  <div class="mt-20"></div>
+    <div class="mt-20"></div>
+  </div>
 </div>
