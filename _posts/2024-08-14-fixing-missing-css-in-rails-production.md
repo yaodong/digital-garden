@@ -31,7 +31,7 @@ The post suggested two things:
 
 Intrigued by this solution, I dug into the `sprockets-rails` code, which revealed the following order of operations:
 
-1. Sprockets initializes using the Rails::Railtie hooks.
+1. Sprockets initializes using the `Rails::Railtie` hooks [^2].
 2. Rails uses a JavaScript bundler to build the application CSS, outputting to the assets/build directory.
 3. Sprockets precompiles all assets, outputting to the public/assets directory.
 
@@ -51,7 +51,7 @@ More digging revealed that `config.assets.debug = true` was the culprit.
 
 This debug flag has a sneaky side effect in production: it removes the manifest resolver, which means Sprockets can't recognize manifest.json files. 
 
-Here's the relevant code [^2]:
+Here's the relevant code [^3]:
 
 ```ruby
 if config.assets.resolve_with.nil?
@@ -93,4 +93,5 @@ Happy debugging!
 ## Footnotes
 
 [^1]: [assets:precompile not compiling CSS assets](https://community.fly.io/t/assets-precompile-not-compiling-css-assets/18398)
-[^2]: [sprockets-rails/lib/sprockets/railtie.rb:233](https://github.com/rails/sprockets-rails/blob/2c04236faaacd021b7810289cbac93e962ff14da/lib/sprockets/railtie.rb#L233C91-L233C96)
+[^2]: [A Brief Introduction to Rails Initializers: Why, What, and How](https://www.writesoftwarewell.com/introduction-to-rails-initializers/)
+[^3]: [sprockets-rails/lib/sprockets/railtie.rb:233](https://github.com/rails/sprockets-rails/blob/2c04236faaacd021b7810289cbac93e962ff14da/lib/sprockets/railtie.rb#L233C91-L233C96)
