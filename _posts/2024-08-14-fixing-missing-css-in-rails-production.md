@@ -66,14 +66,15 @@ The solution was to remove the config in the production environment configuratio
 ## Problem 3: MIME type mismatch
 
 I thought I was in the clear. `application.css` was present in both `manifest.json` and on the CDN.
-However, the website still showed me a blank screen. 
-After checking different browsers, Safari finally gave me a clue: a MIME-type error.
+However, the website still showed me a blank screen.  
+After determining that it's not a CORS problem and checking different browsers, Safari finally gave me a clue: a MIME-type error.
 
-I was using `s3cmd` to upload files to a CDN bucket. A GitHub issue discussion suggested using the `--no-mime-magic` and `--guess-mime-type` options with s3cmd. 
-However, this advice was specific to a problem with `python-magic` producing incorrect mime types.
-After testing it on my local machine, I found that `python-magic` was working fine. 
-The solution was to adjust the s3cmd options. I removed the `--no-mime-magic` flag but kept the `--guess-mime-type` flag. 
-This adjustment allowed s3cmd to correctly detect and set MIME types.
+I was using `s3cmd` to upload files to a CDN bucket. When I wrote the github workflow, I referenced a discussion on GitHub.
+The discussion suggested using the `--no-mime-magic` and `--guess-mime-type` options with `s3cmd`.
+However, this advice was addressing a problem where certain versions of `python-magic` were producing incorrect MIME types.
+After testing it on my local machine, I confirmed the latest version of `python-magic` has fixed this issue.
+The solution was to adjust the `s3cmd` options. I removed the `--no-mime-magic` flag but kept the `--guess-mime-type` flag. 
+This adjustment allowed `s3cmd` to correctly detect and set MIME types.
 
 ## Conclusion
 
