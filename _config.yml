@@ -25,3 +25,4 @@ exclude:
   - README.md
   - .idea
   - .github
+  - .devcontainer
