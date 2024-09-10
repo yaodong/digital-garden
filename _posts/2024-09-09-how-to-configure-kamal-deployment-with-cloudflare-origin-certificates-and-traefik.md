@@ -78,7 +78,9 @@ tls:
       keyFile: /var/local/certs/example.com.key
 ```
 
-Then, use labels to tell Traefik to use the configuration in `dynamic.yml`. The complete Traefik configuration should look like this:
+In the configuration file, simply list the certificate and key files. There's no need to specify which domain names correspond to which certificates. Traefik automatically matches certificates to domain names using the SNI (Server Name Indication) header from incoming requests.
+
+Then, use labels to tell Traefik to use the configuration in `dynamic.yml`. The updated Traefik configuration should look like this:
 
 ```yaml
 traefik:
@@ -94,6 +96,7 @@ traefik:
     entrypoints.websecure.http.tls: true
     providers.file.filename: "/var/local/traefik/dynamic.yml"
 ```
+
 After making these configuration changes, you must re-create the Traefik container for the new settings to take effect. Execute the following command:
 
 ```bash
