@@ -3,7 +3,9 @@ layout: post
 category: dives
 stage: budding
 title: Fixing Missing Assets Files in Rails Production
+excerpt: A simple Rails asset issue evolved into a complex debugging journey.
 created_date: 2024-08-14
+updated_date: 2024-08-14
 ---
 
 Recently, I ran into a frustrating issue where `application.css` couldn't ebe found in my Rails app.
